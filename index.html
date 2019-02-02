@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JSON TEST</title>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      let getJson = () => {
+        axios.get("https://api.myjson.com/bins/177x04").then(res => {
+          alert("データの取得に成功しました。値を設定します。");
+          document.getElementById("text1").value = res.data.name;
+          document.getElementById("text2").value = res.data.age;
+        });
+      };
+    </script>
+    <h2>JSONデータをAXIOSで取得します</h2>
+    <label for="text1">名前</label>
+    <input type="text" id="text1" value="" /><br />
+    <label for="text2">年齢 </label><input type="text" id="text2" value="" />
+    <br />
+    <button onClick="getJson()">JSON取得！</button>
+  </body>
+</html>
